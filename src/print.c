@@ -8,7 +8,7 @@
  * - Otherwise, interprets escape sequences like \n, \t, etc.
  * - Adds a newline at the end unless FLAG_NO_NEWLINE is set.
  */
-void echo(int argc, char* argv[], argv_flag flag, int first_argv)
+void echo(int argc, const char* argv[], argv_flag flag, int first_argv)
 {
     if ((flag & FLAG_IGNORE_ESCAPE) == FLAG_IGNORE_ESCAPE)
     {
@@ -34,7 +34,7 @@ void echo(int argc, char* argv[], argv_flag flag, int first_argv)
  *  argv       - Array of command-line argument strings
  *  first_argv - Index of the first argument that is not a flag
  */
-void escape_ignored_echo(int argc, char* argv[], int first_argv)
+void escape_ignored_echo(int argc, const char* argv[], int first_argv)
 {
     for (int i = first_argv; i < argc; i++)
     {
@@ -60,7 +60,7 @@ void escape_ignored_echo(int argc, char* argv[], int first_argv)
  *  argv       - Array of command-line argument strings
  *  first_argv - Index of the first argument that is not a flag
  */
-void escaped_echo(int argc, char* argv[], int first_argv)
+void escaped_echo(int argc, const char* argv[], int first_argv)
 {
     for (int i = first_argv; i < argc; i++) 
     {
