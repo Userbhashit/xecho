@@ -1,31 +1,25 @@
 #ifndef PARSE_H
 #define PARSE_H
 
-#include <stdio.h>
-
-/*
- * Type representing a set of flags using a bitmask.
- * Each bit corresponds to a specific command-line option.
- */
-typedef unsigned int argv_flag;
-
-/*
- * Bitmask flags for command-line options:
- *   FLAG_NONE         - No flags set
- *   FLAG_NO_NEWLINE   - -n : Do not print the trailing newline
- *   FLAG_IGNORE_ESCAPE- -E : Do not interpret escape sequences (\n, \t, etc.)
- */
-#define FLAG_NONE          0
-#define FLAG_NO_NEWLINE    (1 << 0)
-#define FLAG_IGNORE_ESCAPE (1 << 1)
+#include "types.h"
 
 /*
  * Parse command-line arguments to detect flags and determine the first non-flag argument.
  *
 * Notes:
  *   - Only recognized flags that are set in the bitmask.
- *   - Unrecognized flags should be handled separately by the caller (or print an error).
+ *   - Unrecognized flags will be printed as an error.
  */
-argv_flag get_flag(int argc, char* argv[], int* first_argv);
+argv_flag get_flag(int argc, const char* argv[], int* first_argv);
+
+/*
+* Functions to: 
+* - Verify the color
+* - Set the color
+* - Fucntion to rest the terminal default color called at end of main()
+*/
+enum color verify_color (const char* color);
+void set_color(enum color c);
+void reset_color (void);
 
 #endif
