@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "parse.h"
 #include "print.h"
 
-int main(int argc, char *argv[])
+int main(int argc, const char *argv[])
 {
     // Index of the first argument that is not a flag
     int first_argv = 1;
@@ -12,6 +11,9 @@ int main(int argc, char *argv[])
 
     // Print the arguments according to the flags (handles -n, -e, etc.)
     echo(argc, argv, flag, first_argv);
+
+    // reset to default color
+    reset_color();
 
     return 0;
 }
