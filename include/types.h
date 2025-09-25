@@ -17,10 +17,13 @@ typedef unsigned int argv_flag;
  *
  * FLAG_IGNORE_ESCAPE - (bit 1) Option: -E
  *                      Prevents interpreting escape sequences like \n, \t
+ *
+ * INCLUDE_TIME       - (bit 2) Option: --time
  */
 #define FLAG_NONE          0
-#define FLAG_NO_NEWLINE    (1 << 0)   // binary: 0001
-#define FLAG_IGNORE_ESCAPE (1 << 1)   // binary: 0010
+#define FLAG_NO_NEWLINE    (1 << 0) 
+#define FLAG_IGNORE_ESCAPE (1 << 1)   
+#define INCLUDE_TIME       (1 << 2)
 
 // ---------- Color definitions ----------
 
