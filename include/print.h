@@ -1,7 +1,6 @@
 #ifndef PRINT_H
 #define PRINT_H
 
-#include <stdio.h>
 #include "types.h"
 
 // Print all arguments according to the specified flags.
