@@ -21,8 +21,8 @@ typedef unsigned int argv_flag;
  * INCLUDE_TIME       - (bit 2) Option: --time
  */
 #define FLAG_NONE          0
-#define FLAG_NO_NEWLINE    (1 << 0) 
-#define FLAG_IGNORE_ESCAPE (1 << 1)   
+#define FLAG_NO_NEWLINE    (1 << 0)
+#define FLAG_IGNORE_ESCAPE (1 << 1)
 #define INCLUDE_TIME       (1 << 2)
 
 // ---------- Color definitions ----------
@@ -67,4 +67,4 @@ struct ColorInfo {
 extern struct ColorInfo colors[];  
 extern size_t colors_count;
 
-#endif  // End of header guard
+#endif
