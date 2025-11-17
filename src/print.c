@@ -4,18 +4,6 @@
 #include <stdio.h>
 #include <time.h>
 
-/*
- * echo
- * ----
- * Main echo function that prints command-line arguments according to
- * the specified flags.
- *
- * Behavior:
- *   - If INCLUDE_TIME flag is set, prints the current timestamp before arguments.
- *   - If FLAG_IGNORE_ESCAPE is set, prints arguments literally without interpreting escape sequences.
- *   - Otherwise, interprets common escape sequences (\n, \t, \v, \b, \r).
- *   - Adds a newline at the end unless FLAG_NO_NEWLINE is set.
- */
 void echo(const char* argv[], argv_flag flag)
 {
     if ((flag & INCLUDE_TIME) == INCLUDE_TIME) {
@@ -38,19 +26,6 @@ void echo(const char* argv[], argv_flag flag)
     }
 }
 
-/*
- * escape_ignored_echo
- * ------------------
- * Prints all arguments exactly as they are, without interpreting escape sequences.
- *
- * Parameters:
- *   argc       - total number of command-line arguments
- *   argv       - array of argument strings
- *
- * Side effects:
- *   Uses global variables first_argv and last_argv to determine which
- *   arguments to print.
- */
 void escape_ignored_echo(const char* argv[])
 {
     for (int i = first_argv; i < last_argv; i++) {
@@ -62,26 +37,6 @@ void escape_ignored_echo(const char* argv[])
     }
 }
 
-/*
- * escaped_echo
- * ------------
- * Prints arguments while interpreting common escape sequences:
- *   - \n : newline
- *   - \t : horizontal tab
- *   - \v : vertical tab
- *   - \b : backspace
- *   - \r : carriage return
- * Any unrecognized escape sequence is printed as-is (\<char>).
- * Spaces are added between arguments.
- *
- * Parameters:
- *   argc       - total number of command-line arguments
- *   argv       - array of argument strings
- *
- * Side effects:
- *   Uses global variables first_argv and last_argv to determine which
- *   arguments to print.
- */
 void escaped_echo(const char* argv[])
 {
     for (int i = first_argv; i < last_argv; i++) {
