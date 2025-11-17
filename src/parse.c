@@ -4,17 +4,10 @@
 #include <string.h>
 
 #include "parse.h"
+#include "repl.h"
 #include "types.h"
 #include "global.h"
 
-/*
- * Side effects:
- *   - Updates global variables first_argv, last_argv, and output.
- *   - Prints an error (in red) to stderr for unrecognized flags.
- *
- * Returns:
- *   argv_flag bitmask with recognized flags set.
- */
 argv_flag get_flag(int argc, const char* argv[])
 {
     argv_flag final_flag = FLAG_NONE;  // Start with no flags
@@ -45,6 +38,13 @@ argv_flag get_flag(int argc, const char* argv[])
                 if (strcmp(argv[i], "--time") == 0)
                 {
                     final_flag |= INCLUDE_TIME;
+                }
+
+                if (strcmp(argv[i], "--repl") == 0) 
+                {
+                    // Colored output is not allowed in repl mode
+                    reset_color();
+                    start_repl();
                 }
 
                 if (!color_set) 

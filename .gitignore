@@ -60,3 +60,6 @@ build/
 
 # build settings 
 compile_commands.json
+
+# mac OS
+.DS_Store
