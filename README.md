@@ -40,12 +40,17 @@ Flags:
 - Colors: `--black | --red | --green | --yellow | --blue | --magenta | --cyan`
 - Output file: `-o <filename>` (appends to file; excluded from printed args)
 
+## Argument rules
+
+- Flags must appear before positional arguments.
+- `-o <file>` must be specified at the end.
+
 Notes:
 
 - Color codes are only emitted when the output is a terminal (TTY). If redirected to a file, color codes are suppressed.
 - Escapes interpreted when `-E` is NOT set: `\n`, `\t`, `\v`, `\b`, `\r`. Others are passed through as `\\<char>`.
 - Color (if provided) is applied once to the whole output and reset at the end when writing to a terminal.
-
+  
 ### Examples
 
 ```bash
@@ -83,3 +88,11 @@ Re-configure after adding new source files (CMake auto-discovers `src/*.c` on re
 ```bash
 cmake -S . -B build && cmake --build build
 ```
+
+### Motivation
+
+This project was written as a learning exercise to explore:
+- Unix-style CLI design
+- argument parsing in C
+- terminal (TTY) detection and ANSI color handling
+
